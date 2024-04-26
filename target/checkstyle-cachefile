@@ -1,4 +1,10 @@
-#Tue Apr 23 15:02:23 CDT 2024
-configuration*?=AA4438BE217340496EB5C5AA3C30D8B5C92865E5
-/Users/ostdan/IdeaProjects/BookStore/src/main/java/com/example/bookstore/BookStoreApplication.java=1713902540271
-/Users/ostdan/IdeaProjects/BookStore/src/main/resources/application.properties=1713902381892
+#Thu Apr 25 23:16:33 CDT 2024
+configuration*?=11D58307CB355FA4760DC03DE2C71F7C98261F6C
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/java/com/example/bookstore/model/Book.java=1714104036612
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/java/com/example/bookstore/repository/BookRepository.java=1714100850527
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/java/com/example/bookstore/BookStoreApplication.java=1714104989341
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/java/com/example/bookstore/config/AppConfig.java=1714100880216
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/java/com/example/bookstore/service/BookService.java=1714094079906
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/java/com/example/bookstore/service/impl/BookServiceImpl.java=1714101434816
+/Users/ostdan/IdeaProjects/BookStoreGit/src/test/resources/application.properties=1714101585354
+/Users/ostdan/IdeaProjects/BookStoreGit/src/main/resources/application.properties=1714104352773
