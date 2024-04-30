@@ -1,6 +1,0 @@
-com/example/bookstore/config/AppConfig.class
-com/example/bookstore/service/impl/BookServiceImpl.class
-com/example/bookstore/repository/BookRepository.class
-com/example/bookstore/model/Book.class
-com/example/bookstore/BookStoreApplication.class
-com/example/bookstore/service/BookService.class
