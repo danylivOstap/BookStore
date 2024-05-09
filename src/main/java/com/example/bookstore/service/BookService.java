@@ -10,4 +10,8 @@ public interface BookService {
     BookDto save(BookRequestDto requestDto);
 
     BookDto getById(Long id);
+
+    BookDto update(Long id, BookRequestDto requestDto);
+
+    void deleteById(Long id);
 }
