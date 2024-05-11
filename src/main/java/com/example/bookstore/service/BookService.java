@@ -3,9 +3,10 @@ package com.example.bookstore.service;
 import com.example.bookstore.dto.request.BookRequestDto;
 import com.example.bookstore.dto.response.BookDto;
 import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 public interface BookService {
-    List<BookDto> findAll();
+    List<BookDto> findAll(Pageable pageable);
 
     BookDto save(BookRequestDto requestDto);
 
