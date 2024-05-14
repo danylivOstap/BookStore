@@ -1,5 +1,8 @@
 package com.example.bookstore.exception;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+
 import com.example.bookstore.dto.response.ErrorResponseDto;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -25,13 +28,19 @@ public class GlobalExceptionHandler {
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .toList();
         return generateExceptionDetails(
-            "Input arguments validation failure", HttpStatus.BAD_REQUEST, errors);
+            "Input arguments validation failure", BAD_REQUEST, errors);
+    }
+
+    @ExceptionHandler(RegistrationException.class)
+    public ErrorResponseDto handleRegistrationException(RegistrationException e) {
+        return generateExceptionDetails("Registration error occurred", BAD_REQUEST,
+            List.of(e.getMessage()));
     }
 
     @ExceptionHandler(Exception.class)
     public ErrorResponseDto handleAllExceptions(Exception e) {
         return generateExceptionDetails("An unexpected error occurred",
-            HttpStatus.INTERNAL_SERVER_ERROR, List.of(e.getMessage()));
+            INTERNAL_SERVER_ERROR, List.of(e.getMessage()));
     }
 
     private ErrorResponseDto generateExceptionDetails(

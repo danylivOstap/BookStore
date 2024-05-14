@@ -1,6 +1,7 @@
-package com.example.bookstore.validation;
+package com.example.bookstore.validation.validators;
 
 import com.example.bookstore.repository.BookRepository;
+import com.example.bookstore.validation.Isbn;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
