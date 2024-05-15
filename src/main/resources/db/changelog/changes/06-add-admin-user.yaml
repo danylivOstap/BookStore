@@ -7,9 +7,6 @@ databaseChangeLog:
             tableName: users
             columns:
               - column:
-                  name: id
-                  value: 1
-              - column:
                   name: email
                   value: 'admin@example.com'
               - column:
@@ -21,27 +18,3 @@ databaseChangeLog:
               - column:
                   name: last_name
                   value: 'ADMINY4'
-        - insert:
-            tableName: users_roles
-            columns:
-              - column:
-                  name: id
-                  value: 1
-              - column:
-                  name: user_id
-                  value: 1
-              - column:
-                  name: role_id
-                  value: 1
-        - insert:
-            tableName: users_roles
-            columns:
-              - column:
-                  name: id
-                  value: 2
-              - column:
-                  name: user_id
-                  value: 1
-              - column:
-                  name: role_id
-                  value: 2
