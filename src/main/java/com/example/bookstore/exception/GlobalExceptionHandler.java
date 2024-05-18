@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 import com.example.bookstore.dto.response.ErrorResponseDto;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,13 +35,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RegistrationException.class)
     public ErrorResponseDto handleRegistrationException(RegistrationException e) {
         return generateExceptionDetails("Registration error occurred", BAD_REQUEST,
-            List.of(e.getMessage()));
+            List.of());
     }
 
     @ExceptionHandler(Exception.class)
     public ErrorResponseDto handleAllExceptions(Exception e) {
         return generateExceptionDetails("An unexpected error occurred",
-            INTERNAL_SERVER_ERROR, List.of(e.getMessage()));
+            INTERNAL_SERVER_ERROR, List.of());
     }
 
     private ErrorResponseDto generateExceptionDetails(
