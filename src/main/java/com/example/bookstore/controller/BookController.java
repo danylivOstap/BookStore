@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class BookController {
 
     @GetMapping
     @Operation(summary = "Get all Books", description = "Get a list of all available Books")
-    public List<BookDto> getAll(final Pageable pageable) {
+    public Page<BookDto> getAll(final Pageable pageable) {
         return bookService.findAll(pageable);
     }
 
