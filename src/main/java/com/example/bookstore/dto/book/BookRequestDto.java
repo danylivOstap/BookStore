@@ -1,4 +1,4 @@
-package com.example.bookstore.dto.request;
+package com.example.bookstore.dto.book;
 
 import com.example.bookstore.validation.Isbn;
 import jakarta.validation.constraints.Min;
@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.util.Set;
 import lombok.Data;
 
 @Data
@@ -27,4 +28,5 @@ public class BookRequestDto {
     private String description;
     @Size(max = 255)
     private String coverImage;
+    private Set<Long> categoryIds;
 }

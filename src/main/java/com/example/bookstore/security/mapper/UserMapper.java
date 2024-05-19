@@ -1,9 +1,9 @@
-package com.example.bookstore.mapper;
+package com.example.bookstore.security.mapper;
 
 import com.example.bookstore.config.MapperConfig;
-import com.example.bookstore.dto.request.UserCreationRequestDto;
-import com.example.bookstore.dto.response.UserDto;
-import com.example.bookstore.model.User;
+import com.example.bookstore.security.dto.UserCreationRequestDto;
+import com.example.bookstore.security.dto.UserDto;
+import com.example.bookstore.security.model.User;
 import org.mapstruct.Mapper;
 
 @Mapper(config = MapperConfig.class)
