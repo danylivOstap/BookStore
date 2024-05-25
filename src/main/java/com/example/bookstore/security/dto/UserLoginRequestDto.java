@@ -1,4 +1,4 @@
-package com.example.bookstore.dto.request;
+package com.example.bookstore.security.dto;
 
 import com.example.bookstore.validation.Email;
 import jakarta.validation.constraints.NotBlank;

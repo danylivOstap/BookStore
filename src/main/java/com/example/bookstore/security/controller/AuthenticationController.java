@@ -1,10 +1,10 @@
-package com.example.bookstore.controller;
+package com.example.bookstore.security.controller;
 
-import com.example.bookstore.dto.request.UserCreationRequestDto;
-import com.example.bookstore.dto.request.UserLoginRequestDto;
-import com.example.bookstore.dto.response.UserDto;
-import com.example.bookstore.dto.response.UserLoginResponseDto;
-import com.example.bookstore.security.AuthenticationService;
+import com.example.bookstore.security.dto.UserCreationRequestDto;
+import com.example.bookstore.security.dto.UserDto;
+import com.example.bookstore.security.dto.UserLoginRequestDto;
+import com.example.bookstore.security.dto.UserLoginResponseDto;
+import com.example.bookstore.security.service.AuthenticationService;
 import com.example.bookstore.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

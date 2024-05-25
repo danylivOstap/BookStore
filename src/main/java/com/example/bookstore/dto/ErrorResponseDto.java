@@ -1,4 +1,4 @@
-package com.example.bookstore.dto.response;
+package com.example.bookstore.dto;
 
 import java.util.Map;
 

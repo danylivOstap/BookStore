@@ -1,4 +1,4 @@
-package com.example.bookstore.model;
+package com.example.bookstore.security.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
