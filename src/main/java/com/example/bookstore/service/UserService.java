@@ -1,9 +1,12 @@
 package com.example.bookstore.service;
 
-import com.example.bookstore.security.dto.UserCreationRequestDto;
-import com.example.bookstore.security.dto.UserDto;
+import com.example.bookstore.security.model.User;
 
 public interface UserService {
 
-    UserDto register(UserCreationRequestDto userCreationRequestDto);
+    User findByEmail(String email);
+
+    User save(User user);
+
+    boolean isUserRegistered(String email);
 }

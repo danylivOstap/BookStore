@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 import com.example.bookstore.dto.ErrorResponseDto;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,12 @@ public class GlobalExceptionHandler {
     public ErrorResponseDto handleRegistrationException(RegistrationException e) {
         return generateExceptionDetails("Registration error occurred", BAD_REQUEST,
             List.of());
+    }
+
+    @ExceptionHandler(CartAlreadyContainsItem.class)
+    public ErrorResponseDto handleCartAlreadyContainsItem(CartAlreadyContainsItem e) {
+        return generateExceptionDetails("Cart already contains this item", BAD_REQUEST,
+            List.of(e.getMessage()));
     }
 
     @ExceptionHandler(Exception.class)

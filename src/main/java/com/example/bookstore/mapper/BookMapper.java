@@ -11,6 +11,7 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.Named;
 
 @Mapper(config = MapperConfig.class, uses = CategoryMapper.class)
 public interface BookMapper {
@@ -35,4 +36,9 @@ public interface BookMapper {
     }
 
     BookDtoWithoutCategories toDtoWithoutCategories(Book book);
+
+    @Named("bookById")
+    default Book bookFromId(Long id) {
+        return new Book(id);
+    }
 }

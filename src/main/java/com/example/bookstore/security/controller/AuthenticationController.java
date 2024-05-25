@@ -26,7 +26,7 @@ public class AuthenticationController {
     @PostMapping("/registration")
     @Operation(summary = "Create user", description = "Create a new user")
     public UserDto register(@RequestBody @Valid UserCreationRequestDto userCreationRequestDto) {
-        return userService.register(userCreationRequestDto);
+        return authenticationService.register(userCreationRequestDto);
     }
 
     @PostMapping("/login")

@@ -1,16 +1,17 @@
 package com.example.bookstore.model;
 
+import com.example.bookstore.security.model.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.Data;
@@ -20,41 +21,32 @@ import lombok.ToString;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
-@SQLDelete(sql = "UPDATE books SET is_deleted = true WHERE id=?")
+@SQLDelete(sql = "UPDATE shopping_carts SET is_deleted = true WHERE id=?")
 @SQLRestriction("is_deleted <> true")
-@NoArgsConstructor
-@Table(name = "books")
 @Entity
 @Data
-public class Book {
+@NoArgsConstructor
+@Table(name = "shopping_carts")
+public class ShoppingCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String title;
-    @Column(nullable = false)
-    private String author;
-    @Column(unique = true, nullable = false)
-    private String isbn;
-    @Column(nullable = false)
-    private BigDecimal price;
-    private String description;
-    private String coverImage;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToMany
-    @JoinTable(name = "books_categories",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories = new HashSet<>();
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.ALL)
+    private Set<CartItem> cartItems = new HashSet<>();
+
     @Column(nullable = false)
     private boolean isDeleted = false;
 
-    @OneToMany(mappedBy = "book")
-    private Set<CartItem> cartItems;
-
-    public Book(Long id) {
+    public ShoppingCart(Long id) {
         this.id = id;
     }
 }

@@ -7,7 +7,6 @@ import com.example.bookstore.model.Category;
 import com.example.bookstore.repository.CategoryRepository;
 import com.example.bookstore.service.CategoryService;
 import jakarta.persistence.EntityNotFoundException;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
