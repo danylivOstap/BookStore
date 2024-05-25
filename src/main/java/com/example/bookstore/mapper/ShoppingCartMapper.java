@@ -35,7 +35,7 @@ public interface ShoppingCartMapper {
     @AfterMapping
     default void setCartItemIds(
             @MappingTarget ShoppingCartDto shoppingCartDto, ShoppingCart shoppingCart) {
-        shoppingCartDto.setCartItemIds(shoppingCart.getCartItems().stream()
+        shoppingCartDto.setCartItemsId(shoppingCart.getCartItems().stream()
                 .map(CartItem::getId)
                 .collect(Collectors.toSet()));
     }

@@ -23,7 +23,7 @@ public class ShoppingCartController {
     private final ShoppingCartService shoppingCartService;
 
     @GetMapping
-    public ShoppingCartDto getAllUsersCarts(
+    public ShoppingCartDto getUsersCart(
             @AuthenticationPrincipal final UserDetails userDetails) {
         return shoppingCartService.getUsersCart(userDetails.getUsername());
     }
@@ -47,7 +47,7 @@ public class ShoppingCartController {
     @DeleteMapping("/{cartItemId}")
     public ShoppingCartDto deleteCartItem(
             @AuthenticationPrincipal final UserDetails userDetails,
-            @PathVariable final Long id) {
-        return shoppingCartService.deleteCartItem(id, userDetails.getUsername());
+            @PathVariable final Long cartItemId) {
+        return shoppingCartService.deleteCartItem(cartItemId, userDetails.getUsername());
     }
 }

@@ -1,6 +1,7 @@
 package com.example.bookstore.security.service;
 
 import com.example.bookstore.exception.RegistrationException;
+import com.example.bookstore.model.ShoppingCart;
 import com.example.bookstore.security.JwtUtil;
 import com.example.bookstore.security.dto.UserCreationRequestDto;
 import com.example.bookstore.security.dto.UserDto;
@@ -42,9 +43,18 @@ public class AuthenticationService {
             throw new RegistrationException("Can't register user");
         }
         final User user = userMapper.toModel(userCreationRequestDto);
+        setUserFields(userCreationRequestDto, user);
+        return userMapper.toDto(userService.save(user));
+    }
+
+    private void setUserFields(
+            final UserCreationRequestDto userCreationRequestDto,
+            final User user) {
         user.setPassword(passwordEncoder.encode(userCreationRequestDto.password()));
         user.setRoles(Set.of(roleRepository.findByName(RoleName.USER).orElseThrow(
                     () -> new RegistrationException("Can't register user"))));
-        return userMapper.toDto(userService.save(user));
+        final ShoppingCart cart = new ShoppingCart();
+        cart.setUser(user);
+        user.setShoppingCart(cart);
     }
 }

@@ -1,13 +1,13 @@
 package com.example.bookstore.dto.cart;
 
 import java.util.Set;
+import lombok.Getter;
+import lombok.Setter;
 
-public record ShoppingCartDto(
-        Long id,
-        Long userId,
-        Set<Long> cartItemsId
-) {
-    public ShoppingCartDto setCartItemIds(Set<Long> cartItemsId) {
-        return new ShoppingCartDto(this.id, this.userId, cartItemsId);
-    }
+@Getter
+@Setter
+public class ShoppingCartDto {
+    private Long id;
+    private Long userId;
+    private Set<Long> cartItemsId;
 }

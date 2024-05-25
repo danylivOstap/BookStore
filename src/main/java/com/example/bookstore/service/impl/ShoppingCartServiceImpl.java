@@ -45,7 +45,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             final String username,
             final AddCartItemDto addCartItemDto) {
         final Optional<ShoppingCart> cartOptional = shoppingCartRepository.findUsersCart(username);
-        final ShoppingCart shoppingCart = cartOptional.orElseGet(() -> createCart(username));
+        final ShoppingCart shoppingCart = cartOptional.orElseThrow(
+                () -> new EntityNotFoundException("Can't find cart for user: '%s'"
+                        .formatted(username)));
         final CartItem cartItem = cartItemMapper.toModel(addCartItemDto);
         cartItem.setShoppingCart(shoppingCart);
         if (cartAlreadyContainsItem(shoppingCart, cartItem)) {
@@ -89,15 +91,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private boolean cartAlreadyContainsItem(
             final ShoppingCart shoppingCart,
             final CartItem cartItem) {
+        if (shoppingCart.getCartItems().isEmpty()) {
+            return false;
+        }
         return shoppingCart.getCartItems().stream()
             .map(CartItem::getBook)
             .map(Book::getId)
             .anyMatch((id) -> id.equals(cartItem.getBook().getId()));
-    }
-
-    private ShoppingCart createCart(final String username) {
-        final ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setUser(userService.findByEmail(username));
-        return shoppingCart;
     }
 }
