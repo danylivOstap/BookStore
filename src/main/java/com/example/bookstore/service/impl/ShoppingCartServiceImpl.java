@@ -80,6 +80,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return shoppingCartMapper.toDto(cart);
     }
 
+    @Override
+    public ShoppingCart save(final ShoppingCart shoppingCart) {
+        return shoppingCartRepository.save(shoppingCart);
+    }
+
     private CartItem getCartItemById(final Long cartItemId, final Set<CartItem> cartItems) {
         return cartItems.stream()
             .filter(i -> Objects.equals(i.getId(), cartItemId))
