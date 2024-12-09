@@ -34,13 +34,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RegistrationException.class)
     public ErrorResponseDto handleRegistrationException(RegistrationException e) {
         return generateExceptionDetails("Registration error occurred", BAD_REQUEST,
-            List.of(e.getMessage()));
+            List.of());
     }
 
     @ExceptionHandler(Exception.class)
     public ErrorResponseDto handleAllExceptions(Exception e) {
         return generateExceptionDetails("An unexpected error occurred",
-            INTERNAL_SERVER_ERROR, List.of(e.getMessage()));
+            INTERNAL_SERVER_ERROR, List.of());
     }
 
     private ErrorResponseDto generateExceptionDetails(
