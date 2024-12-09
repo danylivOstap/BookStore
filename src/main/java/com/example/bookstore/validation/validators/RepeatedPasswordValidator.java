@@ -1,6 +1,6 @@
 package com.example.bookstore.validation.validators;
 
-import com.example.bookstore.dto.request.UserCreationRequestDto;
+import com.example.bookstore.security.dto.UserCreationRequestDto;
 import com.example.bookstore.validation.RepeatedPasswordMatch;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

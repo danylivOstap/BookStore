@@ -1,7 +1,7 @@
 package com.example.bookstore.service;
 
-import com.example.bookstore.dto.request.UserCreationRequestDto;
-import com.example.bookstore.dto.response.UserDto;
+import com.example.bookstore.security.dto.UserCreationRequestDto;
+import com.example.bookstore.security.dto.UserDto;
 
 public interface UserService {
 

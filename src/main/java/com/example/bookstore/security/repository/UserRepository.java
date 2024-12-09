@@ -1,6 +1,6 @@
-package com.example.bookstore.repository;
+package com.example.bookstore.security.repository;
 
-import com.example.bookstore.model.User;
+import com.example.bookstore.security.model.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

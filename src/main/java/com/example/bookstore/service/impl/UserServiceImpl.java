@@ -1,10 +1,10 @@
 package com.example.bookstore.service.impl;
 
-import com.example.bookstore.dto.request.UserCreationRequestDto;
-import com.example.bookstore.dto.response.UserDto;
-import com.example.bookstore.mapper.UserMapper;
-import com.example.bookstore.model.User;
-import com.example.bookstore.repository.UserRepository;
+import com.example.bookstore.security.dto.UserCreationRequestDto;
+import com.example.bookstore.security.dto.UserDto;
+import com.example.bookstore.security.mapper.UserMapper;
+import com.example.bookstore.security.model.User;
+import com.example.bookstore.security.repository.UserRepository;
 import com.example.bookstore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

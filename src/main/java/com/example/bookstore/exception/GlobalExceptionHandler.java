@@ -3,7 +3,7 @@ package com.example.bookstore.exception;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
-import com.example.bookstore.dto.response.ErrorResponseDto;
+import com.example.bookstore.dto.ErrorResponseDto;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

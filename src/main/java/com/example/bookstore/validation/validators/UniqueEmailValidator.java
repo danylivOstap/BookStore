@@ -1,6 +1,6 @@
 package com.example.bookstore.validation.validators;
 
-import com.example.bookstore.repository.UserRepository;
+import com.example.bookstore.security.repository.UserRepository;
 import com.example.bookstore.validation.UniqueEmail;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
